@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>For Ipaaaa</title>
+</head>
+
+<body>
+
+    <nav style="background-color: #e944e1; padding: 10px; text-align: center;">
+        <span style="color: rgb(255, 255, 255); font-size: 18px; font-weight: bold;">Halo Ipaa</span>
+    </nav>
+
+    <div class="TEKS">
+        <H1>TEKAN FOTONYA!!!</H1>
+    </div>
+
+    <div class="foto-container">
+        <div class="foto-item">
+            <img src="foto/foto1.jpg" alt="Foto 1" onclick="bukaModal(this); playMusic('musik1')">
+        </div>
+        <div class="foto-item">
+            <img src="foto/foto2.jpg" alt="Foto 2" onclick="bukaModal(this); playMusic('musik2')">
+        </div>
+        <div class="foto-item">
+            <img src="foto/foto3.jpg" alt="Foto 3" onclick="bukaModal(this); playMusic('musik3')">
+        </div>
+        <div class="foto-item">
+            <img src="foto/foto4.jpg" alt="Foto 4" onclick="bukaModal(this); playMusic('musik4')">
+        </div>
+
+    </div>
+
+    <div id="modalFoto" class="modal">
+        <span class="tutup" onclick="tutupModal()">&times;</span>
+        <img class="modal-konten" id="fotoModal">
+    </div>
+
+    <script>
+        var currentAudio = null;
+
+        function bukaModal(img) {
+            var modal = document.getElementById("modalFoto");
+            var modalImg = document.getElementById("fotoModal");
+            modal.style.display = "block";
+            modalImg.src = img.src;
+        }
+
+        function tutupModal() {
+            var modal = document.getElementById("modalFoto");
+            modal.style.display = "none";
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+        }
+
+        function playMusic(musikId) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            currentAudio = document.getElementById(musikId);
+            currentAudio.play();
+        }
+    </script>
+
+    <audio id="musik1">
+        <source src="music/somebody.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="musik2">
+        <source src="music/18.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="musik3">
+        <source src="music/treeat.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <audio id="musik4">
+        <source src="music/wish you were here.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+  
+</body>
+</html>
